@@ -1,10 +1,10 @@
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
-import client from "../../client";
+import * as jwt from "jsonwebtoken";
+import * as bcrypt from "bcrypt";
+import { Resolvers } from "../../types";
 
-export default {
+const resolvers: Resolvers = {
   Mutation: {
-    login: async (_, { username, password }) => {
+    login: async (_, { username, password }, { client }) => {
       try {
         // find user with args username
         const user = await client.user.findFirst({ where: { username } });
@@ -14,6 +14,7 @@ export default {
             error: "User not found.",
           };
         }
+
         // check password with args.password
         const passwordOk = await bcrypt.compare(password, user.password);
         if (!passwordOk) {
@@ -22,9 +23,9 @@ export default {
             error: "Incorrect password",
           };
         }
-        // issue a token and send it to the user
-        const token = await jwt.sign({ id: user.id }, process.env.SECRET_KEY);
 
+        // issue a token and send it to the user
+        const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY);
         return {
           ok: true,
           token,
@@ -38,3 +39,5 @@ export default {
     },
   },
 };
+
+export default resolvers;

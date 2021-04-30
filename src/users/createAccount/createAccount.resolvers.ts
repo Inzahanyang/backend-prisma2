@@ -1,11 +1,12 @@
-import bcrypt from "bcrypt";
-import client from "../../client";
+import * as bcrypt from "bcrypt";
+import { Resolvers } from "../../types";
 
-export default {
+const resolvers: Resolvers = {
   Mutation: {
     createAccount: async (
       _,
-      { firstName, lastName, username, email, password }
+      { firstName, lastName, username, email, password },
+      { client }
     ) => {
       try {
         // check if username or email are already on DB.
@@ -20,7 +21,7 @@ export default {
         // hash password
         const uglyPassword = await bcrypt.hash(password, 10);
         // save and return the user
-        return client.user.create({
+        const user = await client.user.create({
           data: {
             firstName,
             lastName,
@@ -29,9 +30,16 @@ export default {
             password: uglyPassword,
           },
         });
+        if (user) {
+          return {
+            ok: true,
+          };
+        }
       } catch (e) {
         return e;
       }
     },
   },
 };
+
+export default resolvers;
