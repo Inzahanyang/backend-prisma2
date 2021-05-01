@@ -7,7 +7,7 @@ const resolvers: Resolvers = {
     editProfile: protectedResolver(
       async (
         _,
-        { firstName, lastName, username, email, password: newPassword },
+        { firstName, lastName, username, email, password: newPassword, bio },
         { loggedInUser, client }
       ) => {
         let uglyPassword = null;
@@ -23,6 +23,7 @@ const resolvers: Resolvers = {
             lastName,
             username,
             email,
+            bio,
             ...(uglyPassword && { password: uglyPassword }),
           },
         });
