@@ -35,8 +35,11 @@ const resolvers: Resolvers = {
             ok: true,
           };
         }
-      } catch (e) {
-        return e;
+      } catch {
+        return {
+          ok: false,
+          error: "Can not create account",
+        };
       }
     },
   },
