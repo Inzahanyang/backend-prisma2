@@ -3,13 +3,12 @@ import { protectedResolver } from "../users.utils";
 
 const resolvers: Resolvers = {
   Mutation: {
-    followUser: protectedResolver(
+    unfollowUser: protectedResolver(
       async (_, { username }, { loggedInUser, client }) => {
-        const user = await client.user.findUnique({
+        const ok = await client.user.findUnique({
           where: { username },
         });
-        console.log(user);
-        if (!user) {
+        if (!ok) {
           return {
             ok: false,
             error: "User not found",
@@ -19,7 +18,7 @@ const resolvers: Resolvers = {
           where: { id: loggedInUser.id },
           data: {
             followings: {
-              connect: {
+              disconnect: {
                 username,
               },
             },
