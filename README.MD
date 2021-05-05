@@ -9,6 +9,7 @@
 - [x] Change Avatar (Image Upload)
 - [x] Follow User
 - [x] Unfollow User
-- [ ] See Followers and See Following with Pagination
-- [ ] Computed Fields
-- [ ] Search Users
+- [x] See Followers w/ Offset Pagination
+- [x] See Following w/ Cursor-based Pagination
+- [x] Computed Fields
+- [x] Search Users
