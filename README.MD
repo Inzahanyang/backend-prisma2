@@ -13,3 +13,14 @@
 - [x] See Following w/ Cursor-based Pagination
 - [x] Computed Fields
 - [x] Search Users
+
+## Hashtag:
+
+- [ ] Upload Photo (Parse #)
+- [ ] See Photo
+- [ ] See Hashtags
+- [ ] Search Photos
+- [ ] Edit Photo
+- [ ] Like / Unlike Photo
+- [ ] See Photo Likes
+- [ ] See Feed
