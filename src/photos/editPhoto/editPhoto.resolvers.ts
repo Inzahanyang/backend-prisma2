@@ -19,7 +19,7 @@ const resolvers: Resolvers = {
             },
           },
         });
-        console.log(oldPhoto);
+
         if (!oldPhoto) {
           return {
             ok: false,
@@ -27,7 +27,7 @@ const resolvers: Resolvers = {
           };
         }
 
-        const photo = await client.photo.update({
+        await client.photo.update({
           where: { id },
           data: {
             caption,
@@ -44,8 +44,6 @@ const resolvers: Resolvers = {
             },
           },
         });
-
-        console.log(photo);
 
         return {
           ok: true,
