@@ -8,7 +8,7 @@ const resolvers: Resolvers = {
         const user = await client.user.findUnique({
           where: { username },
         });
-        console.log(user);
+
         if (!user) {
           return {
             ok: false,

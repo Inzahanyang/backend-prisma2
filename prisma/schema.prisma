@@ -19,7 +19,7 @@ model User {
   password   String
   bio        String?
   avatar     String?
-  Photo      Photo[]
+  photos     Photo[]
   likes      Like[]
   followers  User[]    @relation("FollowRelation", references: [id])
   followings User[]    @relation("FollowRelation", references: [id])
@@ -35,10 +35,10 @@ model Photo {
   file      String
   caption   String?
   hashtags  Hashtag[]
-  likes     Like[]
-  comments  Comment[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+  likes     Like[]
+  comments  Comment[]
 }
 
 model Hashtag {

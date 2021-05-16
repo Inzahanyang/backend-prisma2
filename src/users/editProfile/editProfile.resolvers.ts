@@ -29,7 +29,6 @@ const resolvers: Resolvers = {
           );
           readStream.pipe(writeStream);
           avatarUrl = `http://localhost:4000/static/${newFilename}`;
-          console.log(avatarUrl);
         }
 
         let uglyPassword = null;

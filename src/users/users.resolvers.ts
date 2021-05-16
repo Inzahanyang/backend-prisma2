@@ -51,6 +51,6 @@ export default {
             id,
           },
         })
-        .Photo(),
+        .photos(),
   },
 };

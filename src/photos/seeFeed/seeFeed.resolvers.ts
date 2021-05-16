@@ -13,9 +13,7 @@ const resolvers: Resolvers = {
         },
         orderBy: { createdAt: "desc" },
       });
-      console.log(loggedInUser);
 
-      console.log(photo);
       return photo;
     }),
   },
