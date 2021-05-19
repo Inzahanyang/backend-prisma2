@@ -21,3 +21,16 @@ export const uploadToS3 = async (file, userId, folderName) => {
     .promise();
   return Location;
 };
+
+/* export const deleteInS3 = async (fileUrl) => {
+  const Key = fileUrl.replace(
+    "https://instagram-uploads-i.s3.amazonaws.com/",
+    ""
+  );
+  await new AWS.S3()
+    .deleteObject({
+      Bucket: "instagram-uploads-i",
+      Key,
+    })
+    .promise();
+}; */

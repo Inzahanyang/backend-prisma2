@@ -39,4 +39,13 @@
 
 ## Extras
 
-- [ ] S3 Image Upload
+- [x] S3 Image Upload
+
+## DMs
+
+- [x] See Rooms
+- [x] Send Message (Create Room)
+- [x] See Room
+- [x] See Message
+- [x] Computed Field
+- [x] Realtime Message
